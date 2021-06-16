@@ -36,7 +36,14 @@ namespace jogodavelha
     /// </returns>
     public int QuemVenceu(string partida)
     {
-      
+      string[] vencedorl1 = new string[3] {"1,1","1,2", "1,3"};
+      string[] vencedorl2 = new string[3] {"2,1","2,2", "2,3"};
+      string[] vencedorl3 = new string[3] {"3,1","3,2", "3,3"};
+      string[] vencedorc1 = new string[3] {"1,1","2,1", "3,1"};
+      string[] vencedorc2 = new string[3] {"1,2","2,2", "3,2"};
+      string[] vencedorc3 = new string[3] {"1,3","2,3", "3,3"};
+      string[] vencedord1 = new string[3] {"1,1","2,2", "3,3"};
+      string[] vencedord2 = new string[3] {"1,3","2,2", "3,1"};
       // implemente o método...
       
       return 0;
