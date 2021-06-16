@@ -1,0 +1,16 @@
+G:\c#\recrutadores\jogodavelha\bin\Debug\net5.0\jogodavelha.exe
+G:\c#\recrutadores\jogodavelha\bin\Debug\net5.0\jogodavelha.deps.json
+G:\c#\recrutadores\jogodavelha\bin\Debug\net5.0\jogodavelha.runtimeconfig.json
+G:\c#\recrutadores\jogodavelha\bin\Debug\net5.0\jogodavelha.runtimeconfig.dev.json
+G:\c#\recrutadores\jogodavelha\bin\Debug\net5.0\jogodavelha.dll
+G:\c#\recrutadores\jogodavelha\bin\Debug\net5.0\ref\jogodavelha.dll
+G:\c#\recrutadores\jogodavelha\bin\Debug\net5.0\jogodavelha.pdb
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\jogodavelha.csproj.AssemblyReference.cache
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\jogodavelha.GeneratedMSBuildEditorConfig.editorconfig
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\jogodavelha.AssemblyInfoInputs.cache
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\jogodavelha.AssemblyInfo.cs
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\jogodavelha.csproj.CoreCompileInputs.cache
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\jogodavelha.dll
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\ref\jogodavelha.dll
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\jogodavelha.pdb
+G:\c#\recrutadores\jogodavelha\obj\Debug\net5.0\jogodavelha.genruntimeconfig.cache

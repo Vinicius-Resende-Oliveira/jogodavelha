@@ -1,3 +1,5 @@
+using System;
+
 namespace jogodavelha
 {
   public class Velha
@@ -36,17 +38,99 @@ namespace jogodavelha
     /// </returns>
     public int QuemVenceu(string partida)
     {
-      string[] vencedorl1 = new string[3] {"1,1","1,2", "1,3"};
-      string[] vencedorl2 = new string[3] {"2,1","2,2", "2,3"};
-      string[] vencedorl3 = new string[3] {"3,1","3,2", "3,3"};
-      string[] vencedorc1 = new string[3] {"1,1","2,1", "3,1"};
-      string[] vencedorc2 = new string[3] {"1,2","2,2", "3,2"};
-      string[] vencedorc3 = new string[3] {"1,3","2,3", "3,3"};
-      string[] vencedord1 = new string[3] {"1,1","2,2", "3,3"};
-      string[] vencedord2 = new string[3] {"1,3","2,2", "3,1"};
-      // implemente o método...
+      string[,] vencedor = new string[8,3];
+      vencedor[0,0] = "1,1"; 
+      vencedor[0,1] = "1,2";
+      vencedor[0,2] = "1,3"; 
+      vencedor[1,0] = "2,1";
+      vencedor[1,1] = "2,2"; 
+      vencedor[1,2] = "2,3"; 
+      vencedor[2,0] = "3,1";
+      vencedor[2,1] = "3,2";
+      vencedor[2,2] = "3,3"; 
+      vencedor[3,0] = "1,1";
+      vencedor[3,1] = "2,1";
+      vencedor[3,2] = "3,1"; 
+      vencedor[4,0] = "1,2";
+      vencedor[4,1] = "2,2";
+      vencedor[4,2] = "3,2"; 
+      vencedor[5,0] = "1,3";
+      vencedor[5,1] = "2,3";
+      vencedor[5,2] = "3,3"; 
+      vencedor[6,0] = "1,1";
+      vencedor[6,1] = "2,2";
+      vencedor[6,2] = "3,3"; 
+      vencedor[7,0] = "1,3";
+      vencedor[7,1] = "2,2";
+      vencedor[7,2] = "3,1"; 
+      
+      string[] jogadas = partida.Split(" ");
+      string[] jogadorX = new string[9];
+      string[] jogadorO = new string[9];
+      int x = 0; 
+      int o = 0;
+      foreach(string j in jogadas){
+        if(j.Substring(0,1) == "x"){
+          string[] posicao = j.Split(":");
+          jogadorX[x] = posicao[1];
+          x++;
+        }
+        if(j.Substring(0,1) == "o"){
+          string[] posicao = j.Split(":");
+          jogadorO[o] = posicao[1];
+          o++;
+        }
+      }
+
+      int c = 0;
+      string[] array = new string[3];
+      bool venceu = false;
+      do{
+        array[0] = vencedor[c,0];
+        array[1] = vencedor[c,1];
+        array[2] = vencedor[c,2];
+        c++;
+        venceu = verificarJogada(array, jogadorX);
+        if(venceu){
+          return -1;
+        }
+        if(c == 7){
+            break;
+        }
+      }while(venceu);
+
+      do{
+        array[0] = vencedor[c,0];
+        array[1] = vencedor[c,1];
+        array[2] = vencedor[c,2];
+        
+        venceu = verificarJogada(array, jogadorO);
+        if(venceu){
+          return 1;
+        }else if(c == 7){
+            break;
+        }else{
+          c++;
+        }
+      }while(venceu);
       
       return 0;
+    }
+    private bool verificarJogada(string[] pvencedor, string[] jogada){
+      int c = 0;
+      for (int i = 0; i < jogada.Length; i++)
+      {
+          for (int a = 0; a < pvencedor.Length; a++)
+          {
+              if(jogada[i] == pvencedor[a]){
+                c++;
+              }
+          }
+          if(c == 3){
+            return true;
+          }
+      }
+      return false;
     }
   }
 }
