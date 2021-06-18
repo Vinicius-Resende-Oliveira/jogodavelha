@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace jogodavelha
@@ -42,12 +43,29 @@ namespace jogodavelha
       var jogadas = partida.Split(' ');
       var jogadasX = jogadas.Where(x => x.Contains("x")).Select(jogadasX => jogadasX.Substring(2));
       var jogadasO = jogadas.Where(x => x.Contains("o")).Select(x => x.Substring(2));
-      
-      
-      
-      
+
+      if(ValidarLinhasColunas(jogadasX) || ValidarDiagonais(jogadasX))
+        return -1;
+      if(ValidarLinhasColunas(jogadasO) || ValidarDiagonais(jogadasO))
+        return 1;
       
       return 0;
     }
-  }
+
+        private bool ValidarDiagonais(IEnumerable<string> jogadasX)
+        {
+            var jogadasLinhas = jogadasX.Select(x => x.Substring(0,1)).ToList();
+            var jogadasColunas = jogadasX.Select(x => x.Substring(2,1)).ToList();
+
+            var linhaQuantidadeMaiorDeJogadas = jogadasLinhas.GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key;
+            var colunaQuantidadeMaiorDeJogadas = jogadasColunas.GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key;
+
+            return  (jogadasLinhas.Count(x => x.Contains(linhaQuantidadeMaiorDeJogadas)) == 3 || jogadasColunas.Count(x => x.Contains(colunaQuantidadeMaiorDeJogadas)) == 3);
+        }
+
+        private bool ValidarLinhasColunas(IEnumerable<string> jogadasX)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
