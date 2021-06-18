@@ -52,10 +52,10 @@ namespace jogodavelha
       return 0;
     }
 
-        private bool ValidarDiagonais(IEnumerable<string> jogadasX)
+        private bool ValidarDiagonais(IEnumerable<string> jogadas)
         {
-            var jogadasLinhas = jogadasX.Select(x => x.Substring(0,1)).ToList();
-            var jogadasColunas = jogadasX.Select(x => x.Substring(2,1)).ToList();
+            var jogadasLinhas = jogadas.Select(x => x.Substring(0,1)).ToList();
+            var jogadasColunas = jogadas.Select(x => x.Substring(2,1)).ToList();
 
             var linhaQuantidadeMaiorDeJogadas = jogadasLinhas.GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key;
             var colunaQuantidadeMaiorDeJogadas = jogadasColunas.GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key;
@@ -63,9 +63,12 @@ namespace jogodavelha
             return  (jogadasLinhas.Count(x => x.Contains(linhaQuantidadeMaiorDeJogadas)) == 3 || jogadasColunas.Count(x => x.Contains(colunaQuantidadeMaiorDeJogadas)) == 3);
         }
 
-        private bool ValidarLinhasColunas(IEnumerable<string> jogadasX)
+        private bool ValidarLinhasColunas(IEnumerable<string> jogadas)
         {
-            throw new NotImplementedException();
+            if(jogadas.Contains("2,2"))
+              return (jogadas.Contains("1,1") && jogadas.Contains("3,3") || jogadas.Contains("1,3") && jogadas.Contains("3,1"));
+
+            return false;
         }
     }
 }
